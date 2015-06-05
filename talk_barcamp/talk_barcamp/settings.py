@@ -180,6 +180,7 @@ CMS_LANGUAGES = {
 
 CMS_TEMPLATES = (
     ('standard.html', 'Standard'),
+    ('twocolumn.html', 'Twocolumn'),
 )
 
 CMS_PERMISSION = True
