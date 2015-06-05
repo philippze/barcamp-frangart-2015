@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load cms_tags %}
+{% load talk_tags %}
+
+
+{% block title %}{% page_attribute 'page_title' %}{% endblock title %}
+
+
+{% block additional_css %}
+    <link rel="stylesheet" href="{% static 'lib/font-awesome/css/font-awesome.min.css' %}" />
+{% endblock additional_css %}
+
+
+{% block main %}
+    <div class="navbar"><h1>{% page_attribute 'page_title' %}</h1></div>
+    {% block content %}
+    {% endblock content %}
+    <div class="prev-next-nav">
+        {% get_prev_page as p %}
+        {% if p %}
+            <a class="prev" href="{% page_url p %}"><i class="fa fa-arrow-left"></i></a>
+        {% endif %}
+        {% get_next_page as p %}
+        {% if p %}
+            <a class="next" href="{% page_url p %}"><i class="fa fa-arrow-right"></i></a>
+        {% endif %}
+    </div>
+{% endblock main %}
+
+
+{% block javascript %}
+    {{ block.super }}
+    <script src="{% static 'js/jquery.stretch-to-window-height.js' %}"></script>
+    <script src="{% static 'js/barcamp.js' %}"></script>
+{% endblock javascript %}

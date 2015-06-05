@@ -1,0 +1,33 @@
+{% load cms_tags compress sekizai_tags static %}<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block title %}Page Title{% endblock title %}</title>
+        <meta name="description" content="{% block description %}Camera Lens Database{% endblock %}" />
+        <meta property="og:url" content="http://{{ request.META.HTTP_HOST }}{{ request.get_full_path }}" />
+        {% block additional_css %}{% endblock %}
+        {% render_block "css" %}
+        {% compress css %}
+            <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/index.scss' %}" />
+        {% endcompress %}
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+  </head>
+  <body class="{% block body_class %}{% endblock %}">
+	{% cms_toolbar %}
+    {% block main %}
+    {% endblock main %}
+    {% block javascript %}
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    {% endblock javascript %}
+    {% render_block "js" %}
+  </body>
+</html>
