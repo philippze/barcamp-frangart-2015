@@ -1,3 +1,4 @@
 *.pyc
 
 talk_barcamp/static
+talk_barcamp/frangart.pid

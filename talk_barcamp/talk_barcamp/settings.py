@@ -189,7 +189,7 @@ CMS_PLACEHOLDER_CONF = {}
 
 DATABASES = {
     'default':
-        {'ENGINE': 'django.db.backends.sqlite3', 'NAME': 'project.db', 'HOST': 'localhost', 'USER': '', 'PASSWORD': '', 'PORT': ''}
+        {'ENGINE': 'django.db.backends.sqlite3', 'NAME': os.path.join(BASE_DIR, 'project.db'), 'HOST': 'localhost', 'USER': '', 'PASSWORD': '', 'PORT': ''}
 }
 
 MIGRATION_MODULES = {
@@ -204,3 +204,5 @@ MIGRATION_MODULES = {
     'djangocms_teaser': 'djangocms_teaser.migrations_django',
     'djangocms_video': 'djangocms_video.migrations_django'
 }
+
+FORCE_SCRIPT_NAME = ''
